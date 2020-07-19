@@ -1,0 +1,67 @@
+<html>
+
+<head>
+	<title>title</title>
+</head>
+
+<body>
+	<h2>
+		Personal Details
+	</h2>
+
+	<input type="email" id="email" placeholder="Your email adress"></input>
+	
+	<p>&nbsp;&nbsp</p>
+	<label>Dialect</label>
+	<select id="dialect">
+		<option value="cantonese">Cantonese</option>
+		<option value="mandarin">Mandarin</option>
+	</select>
+
+	<p>&nbsp;&nbsp</p>
+	<label>Form</label>
+	<select id="form">
+		<option value="traditional">Traditional</option>
+		<option value="simplified">Simplified</option>
+	</select>
+
+	<p>&nbsp;&nbsp</p>
+	<label>Child's Age</label>
+	<input type="text" id="age"></input>
+
+	<p>&nbsp;&nbsp</p>
+	<label>Child's Gender</label>
+	<select id="gender">
+		<option value="male">Male</option>
+		<option value="female">Female</option>
+		<option value="other">Other</option>
+	</select>
+
+	<!-- <input type="submit" value="Submit"> -->
+
+	<!-- <nav>
+		<ul>
+			<li><a href="index.html" action="SaveDetails">Submit</a></li>
+		</ul>
+	</nav> -->
+
+	<p>&nbsp;&nbsp</p>
+	<h2>Instructions</h2>
+	<p>Please record your child reading each of
+these words/phrasse and click submit to
+move onto the next word.<br><br>
+
+It does not matter if the pronunciation is not
+perfect or correct. You can still submit.<br><br>
+
+Our annotator will score the pronunciations
+before using it to train the AI engine</p>
+
+	<p>&nbsp;&nbsp</p>
+	<form method="get" action="index.html">
+		<button id="saveDetails">Submit</button>
+	</form>
+
+</body>
+
+</html>
