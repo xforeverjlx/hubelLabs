@@ -14,6 +14,7 @@ var count = 0;
 
 
 var gumStream; 						//stream from getUserMedia()
+var rec;
 var recorder; 						//WebAudioRecorder object
 var input; 							//MediaStreamAudioSourceNode  we'll be recording
 var encodingType; 					//holds selected encoding for resulting audio (file)
@@ -36,7 +37,7 @@ recordButton.addEventListener("click", startRecording);
 stopButton.addEventListener("click", stopRecording);
 skipButton.addEventListener("click", skip);
 submitButton.addEventListener("click", submit);
-saveDetails.addEventListener("click", save);
+// saveDetails.addEventListener("click", save);
 
 function skip(){
 //  for (var i = 0; i < words.length; i++) {
@@ -159,7 +160,7 @@ function uploadToS3(fileName) {
   });
 }
 
-module.exports = (app) => {
+/*module.exports = (app) => {
   // The following is an example of making file upload with additional body parameters.
   // To make a call with PostMan
   // Don't put any headers (content-type)
@@ -202,7 +203,7 @@ module.exports = (app) => {
 
     req.pipe(busboy);
   });
-}
+}*/
 
 function startRecording() {
 	console.log("startRecording() called");
@@ -214,6 +215,10 @@ function startRecording() {
     
     var constraints = { audio: true, video:false }
 
+	//disable the record button
+    recordButton.disabled = true;
+    stopButton.disabled = false;
+	
     /*
     	We're using the standard promise based getUserMedia() 
     	https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
@@ -222,7 +227,7 @@ function startRecording() {
 
 
 	navigator.mediaDevices.getUserMedia(constraints).then(function(stream) {
-		__log("getUserMedia() success, stream created, initializing WebAudioRecorder...");
+		console.log("getUserMedia() success, stream created, initializing WebAudioRecorder...");
 
 		/*
 			create an audio context after getUserMedia is called
@@ -245,7 +250,7 @@ function startRecording() {
 		//input.connect(audioContext.destination)
 
 		//get the encoding 
-		encodingType = encodingTypeSelect.options[encodingTypeSelect.selectedIndex].value;
+		/*encodingType = encodingTypeSelect.options[encodingTypeSelect.selectedIndex].value;
 		
 		//disable the encoding selector
 		encodingTypeSelect.disabled = true;
@@ -280,7 +285,15 @@ function startRecording() {
 		//start the recording process
 		recorder.startRecording();
 
-		 __log("Recording started");
+		 __log("Recording started");*/
+
+		rec = new Recorder(input,{numChannels:1})
+
+		//start the recording process
+		rec.record()
+
+		console.log("Recording started");
+
 
 	}).catch(function(err) {
 	  	//enable the record button if getUSerMedia() fails
@@ -288,26 +301,31 @@ function startRecording() {
     	stopButton.disabled = true;
 
 	});
-
-	//disable the record button
-    recordButton.disabled = true;
-    stopButton.disabled = false;
 }
 
 function stopRecording() {
 	console.log("stopRecording() called");
 	
 	//stop microphone access
-	gumStream.getAudioTracks()[0].stop();
+	// gumStream.getAudioTracks()[0].stop();
 
 	//disable the stop button
 	stopButton.disabled = true;
 	recordButton.disabled = false;
 	
-	//tell the recorder to finish the recording (stop recording + encode the recorded audio)
-	recorder.finishRecording();
+	//tell the recorder to stop the recording
+	rec.stop();
 
-	__log('Recording stopped');
+	//stop microphone access
+	gumStream.getAudioTracks()[0].stop();
+
+	//create the wav blob and pass it on to createDownloadLink
+	rec.exportWAV(createDownloadLink);
+
+	//tell the recorder to finish the recording (stop recording + encode the recorded audio)
+	//recorder.finishRecording();
+
+	console.log('Recording stopped');
 }
 
 function createDownloadLink(blob,encoding) {
@@ -323,7 +341,7 @@ function createDownloadLink(blob,encoding) {
 
 	//link the a element to the blob
 	link.href = url;
-	link.download = new Date().toISOString() + '.'+encoding;
+	link.download = new Date().toISOString() + '.wav';
 	link.innerHTML = link.download;
 
 	//add the new audio and a elements to the li element
