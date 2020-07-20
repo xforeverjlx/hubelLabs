@@ -1,12 +1,14 @@
 // import AWS from 'aws-sdk'
-const AWS = require('aws-sdk');
-const Busboy = require('busboy');
+
+// const AWS = require('aws-sdk');
+// const Busboy = require('busboy');
 
 //webkitURL is deprecated but nevertheless
 URL = window.URL || window.webkitURL;
 
 var words = ['包子', '書包', '大嫂', '老實'];
-document.getElementById("initText").innerHTML = words[0]
+var initText = document.getElementById("initText")
+initText.innerHTML = words[0]
 var count = 0;
 // var cur = document.getElementById('output');
 
@@ -40,11 +42,11 @@ function skip(){
 //  for (var i = 0; i < words.length; i++) {
 //     cur.innerHTML = words[i];
 //  }
- count += 1;
- count = count % words.length;
- let span = document.querySelectorAll('p span').item(0);
+ 	count += 1;
+	count = count % words.length;
+ 	let span = document.querySelectorAll('p span').item(0);
 //  console.log(span);
- span.textContent = words[count];
+ 	span.textContent = words[count];
 //  let randomWord = words[Math.round(Math.random() * (words.length - 1))];
 //  span.textContent = randomWord;
 }
@@ -83,6 +85,8 @@ function save(){
 	var sgender = gender.options[gender.selectedIndex].value;
 	var sage = document.getElementById("age").value;
 	var semail = document.getElementById("emails").value;
+
+	console.log(semail);
 }
 
 // function s3upload(file) {

@@ -18,11 +18,16 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+
+
+
 	<p>Please hold the record button and have your child read this out loud:</p>
 	
+	<!-- <form action="js/app.js"> -->
 	<div style="text-align: center; font-size: 500%;">
 		<p><span id="initText"> </span></p>
 	</div>
+	
 	
 	<div class="smallButton">		
 		<div id="controls">
@@ -60,9 +65,12 @@
 		</select>
 	</div>
 
-	<!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
+	<!-- </form> -->
+
+		<!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
 	<script src="js/WebAudioRecorder.min.js"></script>
 	<script src="js/app.js"></script>
+	<!-- these have to be at the end else null reference error -->
 
 	
 </body>
