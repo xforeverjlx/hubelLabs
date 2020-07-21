@@ -51,9 +51,9 @@ function submit(event){
 	//store sound file to aws:
 	//https://medium.com/@shresthshruti09/uploading-files-in-aws-s3-bucket-through-javascript-sdk-with-progress-bar-d2a4b3ee77b5
 	event.preventDefault();
-	const bucketName = "aws-sam-cli-managed-default-samclisourcebucket-14zzawn017q2d";
-	const ID = "AKIAIBWO47CFH36X6MRA";
-	const SECRET = "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";
+	const bucketName = BUCKET;
+	const ID = ACCESSID;
+	const SECRET = SECRETID;
 	let url = new URL(window.location.href);
 	let email = url.searchParams.get("email");
 	email = email.substring(0, email.lastIndexOf("@"));
