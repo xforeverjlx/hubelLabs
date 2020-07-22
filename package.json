@@ -1,0 +1,24 @@
+{
+  "name": "awsupload",
+  "version": "1.0.0",
+  "main": "getAWSfiles.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xforeverjlx/hubelLabs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xforeverjlx/hubelLabs/issues"
+  },
+  "homepage": "https://github.com/xforeverjlx/hubelLabs#readme",
+  "dependencies": {
+    "aws-sdk": "^2.715.0",
+    "buffer": "^5.6.0"
+  },
+  "devDependencies": {},
+  "description": ""
+}
