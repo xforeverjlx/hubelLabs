@@ -7,6 +7,12 @@ var loc = window.location + '';
 var last = loc.split("/")[loc.split("/").length-1];
 
 if (last == "index.html?"){
+  var userData = [];
+
+  var saveDetails = document.getElementById("saveDetails");
+  saveDetails.addEventListener("click", save);
+}
+else{
   var userData = localStorage['userData'];
   var words = ['包子', '書包', '大嫂', '老實'];
   var initText = document.getElementById("initText")
@@ -37,12 +43,6 @@ if (last == "index.html?"){
   stopButton.addEventListener("click", stopRecording);
   skipButton.addEventListener("click", skip);
   submitButton.addEventListener("click", submit);
-}
-else{
-  var userData = [];
-
-  var saveDetails = document.getElementById("saveDetails");
-  saveDetails.addEventListener("click", save);
 }
 
 
