@@ -128,7 +128,11 @@ li {
   /* margin: 0; */
   position: relative;
   left: 40%;
-  max-width: 20%;
+  max-width: 25%;
+  /* height:25%; */
+  /* justify-content: center; */
+  justify-items: center;
+  align-items: center;
 
   /* top: 50%; */
   /* left: 50%; */
