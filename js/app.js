@@ -6,7 +6,7 @@ URL = window.URL || window.webkitURL;
 var loc = window.location + '';
 var last = loc.split("/")[loc.split("/").length-1];
 
-if (last == "index.html?"){
+if (last == "index.html"){
   var userData = [];
 
   var saveDetails = document.getElementById("saveDetails");
@@ -111,7 +111,7 @@ function save(){
 	var sdialect = dialect.options[dialect.selectedIndex].value;
 	var sform = form.options[form.selectedIndex].value;
 	var sgender = gender.options[gender.selectedIndex].value;
-	var sage = document.getElementById("age").value;
+	var sage = document.getElementById("agee").value;
 	var semail = document.getElementById("email").value;
 
   // userData = [semail, sage, sgender, sdialect, sform];
