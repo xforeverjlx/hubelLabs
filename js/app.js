@@ -5,14 +5,9 @@ URL = window.URL || window.webkitURL;
 
 var loc = window.location + '';
 var last = loc.split("/")[loc.split("/").length-1];
+console.log(last);
 
-if (last == "index.html"){
-  var userData = [];
-
-  var saveDetails = document.getElementById("saveDetails");
-  saveDetails.addEventListener("click", save);
-}
-else{
+if (last == "recording.html?"){
   var userData = localStorage['userData'];
   var words = ['包子', '書包', '大嫂', '老實'];
   var initText = document.getElementById("initText")
@@ -44,7 +39,12 @@ else{
   skipButton.addEventListener("click", skip);
   submitButton.addEventListener("click", submit);
 }
+else{
+  var userData = [];
 
+  var saveDetails = document.getElementById("saveDetails");
+  saveDetails.addEventListener("click", save);
+}
 
 function skip(){
  	count += 1;
