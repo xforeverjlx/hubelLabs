@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+
+	<nav>
+		<ul>
+			<li><a href="index.html">Instructions & Personal Details Page</a></li>
+		</ul>
+	</nav>
+
+	<title>Audio Recording Demo With WebAudioRecorder.js - addpipe.com</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Latest compiled and minified Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+
+
+	<p>Please press the record button and have your child read this out loud:</p>
+	
+	<!-- <form action="js/app.js"> -->
+	<div style="text-align: center; font-size: 500%;">
+		<p><span id="initText"> </span></p>
+	</div>
+	
+	
+	<div class="smallButton">		
+		<div id="controls">
+			<button id="skipButton"> skip word</button>
+		</div>
+	</div>
+	
+	<!-- <div style="max-width: 28em;"> -->
+	<div>
+		<div id="controls">
+			<button id="recordButton">Record</button>
+			<button id="stopButton" disabled>Stop</button>
+		</div>
+		
+		
+		<p>&nbsp;&nbsp</p>
+		<!-- <pre>Recording</pre> -->
+		<ol id="recordingsList"></ol>
+
+		<div id="controls">
+			<button id="submitButton">Submit & Next</button>
+		</div>
+
+		<!-- to hide the select button -->
+		<p>&nbsp;&nbsp</p><p><p>&nbsp;&nbsp</p>&nbsp;&nbsp</p><p>&nbsp;&nbsp</p><p>&nbsp;&nbsp</p><p>&nbsp;&nbsp</p><p>&nbsp;&nbsp</p><p>&nbsp;&nbsp</p><p>&nbsp;&nbsp</p>		<p>&nbsp;&nbsp</p><p><p>&nbsp;&nbsp</p>&nbsp;&nbsp</p><p>&nbsp;&nbsp</p><p>&nbsp;&nbsp</p><p>&nbsp;&nbsp</p><p>&nbsp;&nbsp</p><p>&nbsp;&nbsp</p><p>&nbsp;&nbsp</p><p>&nbsp;&nbsp</p><p><p>&nbsp;&nbsp</p>&nbsp;&nbsp</p><p>&nbsp;&nbsp</p><p>&nbsp;&nbsp</p><p>&nbsp;&nbsp</p><p>&nbsp;&nbsp</p><p>&nbsp;&nbsp</p><p>&nbsp;&nbsp</p>		<p>&nbsp;&nbsp</p><p><p>&nbsp;&nbsp</p>&nbsp;&nbsp</p><p>&nbsp;&nbsp</p><p>&nbsp;&nbsp</p><p>&nbsp;&nbsp</p><p>&nbsp;&nbsp</p><p>&nbsp;&nbsp</p><p>&nbsp;&nbsp</p>
+
+		<p>please ignore the logs below</p>
+		<div id="formats"></div>
+		<pre>Log</pre>
+		<pre id="log"></pre>
+		<select id="encodingTypeSelect">
+		  <!-- <option value="wav">Waveform Audio (.wav)</option> -->
+		  <option value="mp3">MP3 (MPEG-1 Audio Layer III) (.mp3)</option>
+		  <!-- <option value="ogg">Ogg Vorbis (.ogg)</option> -->
+		</select>
+	</div>
+
+	<!-- </form> -->
+
+		<!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
+	<script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+	<script src="https://sdk.amazonaws.com/js/aws-sdk-2.357.0.min.js"></script>
+	<script src="js/app.js"></script>
+	<!-- these have to be at the end else null reference error -->
+
+	
+</body>
+</html>
